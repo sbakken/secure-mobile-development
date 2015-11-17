@@ -14,7 +14,7 @@ An Activity can be invoked by any application if it is [`exported` and `enabled`
 
 ## Remediation
 
-To ensure proper behavior, Activities can can check internal app state to ensure they are ready to load. For example, first see if the app is in the "unlocked" state and if not jump back to a lock screen. Regardless of what Intent filters are defined, `exported`/`enabled` Activities can be directly invoked with unsanitized data, so input validation is recommended when operating on data provided by an untrusted source.
+Activities can ensure proper behavior by checking internal app state to verify they are ready to load. For example, first see if the app is in the "unlocked" state and if not jump back to a lock screen. Regardless of what Intent filters are defined, `exported`/`enabled` Activities can be directly invoked with unsanitized data, so input validation is recommended when operating on data provided by an untrusted source.
 
 Sample Code of passing intent extra ID instead of the whole object. 
 
@@ -38,10 +38,10 @@ public static Intent getStartingIntent(Context context,
 
 Avoid intent filters on Activities if they are private, instead use explicit intent. 
 
-```
+```xml
 <activity
 	  android:name="com.app.YourActivity"
-    android:label="@string/app_name"
+	  android:label="@string/app_name"
 	  android:excludeFromRecents="true"
 	  android:exported="false" >
 </activity>
